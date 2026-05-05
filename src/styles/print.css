@@ -1,0 +1,50 @@
+@media print {
+  /* Hide everything by default */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Show only the receipt */
+  .pos-receipt,
+  .pos-receipt * {
+    visibility: visible;
+  }
+
+  /* Position receipt at top of page */
+  .pos-receipt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80mm;
+    padding: 10mm;
+    background: white;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: black;
+  }
+
+  /* Remove shadows and rounded corners for print */
+  .pos-receipt {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Dashed dividers */
+  .pos-receipt hr,
+  .pos-receipt .print-divider {
+    border: none;
+    border-top: 1px dashed #000;
+    margin: 6px 0;
+  }
+
+  /* Hide print and new order buttons */
+  .pos-receipt .no-print {
+    display: none !important;
+  }
+
+  /* Page size — standard thermal receipt width */
+  @page {
+    size: 80mm auto;
+    margin: 0;
+  }
+}
